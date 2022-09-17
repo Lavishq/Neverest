@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Neverest",
+  "short_name": "neverest",
+  "version": "1.0.0",
+  "description": "Website Rating App",
+  "icons": {
+    "16": "arrow-down.png",
+    "32": "arrow-down.png",
+    "64": "arrow-down.png",
+    "128": "arrow-down.png"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["../pages/index.js"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "index.html"
+  }
+}

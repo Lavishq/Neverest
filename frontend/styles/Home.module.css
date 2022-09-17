@@ -1,0 +1,194 @@
+.Container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 590px;
+  width: 390px;
+  border-radius: 15px;
+  background-image: linear-gradient(#0d4671, #92e1e2);
+  z-index: -2;
+  box-shadow: 0px 0px 20px #0d4671;
+}
+
+.mainContentContainer {
+  background: linear-gradient(
+    180.05deg,
+    rgba(255, 255, 255, 0.4) 0.04%,
+    rgba(255, 255, 255, 0.2) 99.96%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 325px;
+  height: 425px;
+  border-radius: 15px;
+  margin-top: 130px;
+
+  font-family: "Roboto", sans-serif;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px #0d4671;
+}
+
+.nameAddressRating {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 141px;
+  width: 100%;
+}
+
+.website {
+  font-size: 50px;
+  font-weight: 600;
+  color: #142b65;
+
+  margin: 0px;
+}
+.address {
+  font-size: 22px;
+  margin: 0px;
+  font-weight: lighter;
+  color: #142b65;
+}
+
+.rating {
+  font-size: 18px;
+  margin: 0px;
+  font-weight: 500;
+  color: #142b65;
+}
+
+.inputField {
+  border-radius: 10px;
+  height: 135px;
+  width: 274px;
+  color: #142b65;
+  background-color: rgba(256, 256, 256, 0.314);
+  /*background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(20, 43, 101, 0.24) 100%
+    );*/
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 10px rgb(13, 70, 113, 0.5);
+}
+
+.reviewVoting {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-between;
+}
+
+.ratingButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like {
+  margin: 15px 0 0 10px;
+  border: 0.5px solid rgba(256, 226, 226, 0.3);
+  border-radius: 100%;
+  color: rgba(20, 43, 101, 1);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  /*border-color: rgba(146, 225, 226, 1);*/
+  background: rgba(256, 256, 256, 0.4);
+  box-shadow: 0px 0px 10px rgba(146, 225, 226, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+.dislike {
+  margin: 15px 0 0 10px;
+  border-radius: 100%;
+  border: 0.5px solid rgba(256, 226, 226, 0.3);
+  color: rgba(20, 43, 101, 1);
+  /*border-color: rgba(146, 225, 226, 1);*/
+  background: rgba(256, 256, 256, 0.4);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  background: rgba(256, 256, 256, 0.4);
+  box-shadow: 0px 0px 10px rgba(20, 43, 101, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+.redirectToReviews {
+  display: flex;
+  height: 10%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #142b65;
+  font-weight: 200;
+}
+
+.biggestCircle {
+  background: rgba(146, 225, 226, 1);
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  z-index: -1;
+  animation: movement 2s ease-in infinite alternate;
+}
+
+.smallCircle1 {
+  background: rgba(20, 43, 101, 1);
+
+  height: 140px;
+  width: 140px;
+  border-radius: 100%;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 400px;
+  animation: movement 2s ease-in infinite alternate;
+}
+
+.smallCircle2 {
+  background: rgba(20, 43, 101, 1);
+
+  height: 90px;
+  width: 90px;
+  border-radius: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 500px;
+  left: 290px;
+  animation: movement 2s ease-in infinite alternate;
+}
+@keyframes movement {
+  100% {
+    transform: translatex(10%);
+  }
+}
+.redirectButton {
+  height: 40px;
+  width: 40px;
+  margin-left: 5px;
+}
+.arrowUp {
+  height: 22px;
+  width: 20px;
+}
+.arrowDown {
+  height: 25px;
+  width: 20px;
+}
