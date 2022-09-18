@@ -9,9 +9,9 @@ import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
 //import { walletconnect } from "web3Modal/dist/providers/connectors";
 
-const Index = () => {
+const index = () => {
   const router = useRouter();
-  let navi = () => router.push("/website1");
+  let navi = () => router.push("Extension/1");
 
   const [walletConnected, setWalletConnected] = useState(false);
   const [_sitelink, set_sitelink] = useState("");
@@ -49,6 +49,7 @@ const Index = () => {
     }
     return web3Provider;
   };
+  
 
   const rateWebsite = async () => {
     try {
@@ -79,6 +80,9 @@ const Index = () => {
       connectWallet();
     }
   }, [walletConnected]);
+  
+  const [review,setReview] = useState("");
+
 
   return (
     <div className={styles.Container}>
@@ -96,10 +100,11 @@ const Index = () => {
         </div>
         <div className={styles.reviewVoting}>
           <input
-            type="text"
+            type= "text"
             placeholder="Write your review"
             className={styles.inputField}
-          />
+            onChange={(event)=>setReview(event.target.value)}
+          ></input>
 
           <div className={styles.ratingButtons}>
             <button className={styles.like}>
