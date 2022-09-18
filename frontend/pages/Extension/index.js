@@ -7,7 +7,6 @@ import Web3Modal from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
-//import { walletconnect } from "web3Modal/dist/providers/connectors";
 
 const Index = () => {
   const router = useRouter();
@@ -85,9 +84,9 @@ const Index = () => {
       const signer = await getProviderOrSigner(true);
       // Create a new instance of the Contract with a Signer, which allows
       // update methods
-      const Contract = new Contract(CONTRACT_ADDRESS, ABI, signer);
+      const rateContract = new Contract(CONTRACT_ADDRESS, ABI, signer);
       // call the functions
-      const tx = await Contract.rating(_sitelink, _rating, _comment);
+      const tx = await rateContract.rating(sitelink, _rating, _comment);
       await tx.wait();
       window.alert("You successfully rated/commented, lol");
     } catch (err) {
@@ -124,7 +123,10 @@ const Index = () => {
       <div className={styles.mainContentContainer}>
         <div className={styles.nameAddressRating}>
           {walletConnected ? (
-            <p className={styles.address}>{currentAccount.substring(0,5)}...{currentAccount.substring(currentAccount.length-4)}</p>
+            <p className={styles.address}>
+              {currentAccount.substring(0, 5)}...
+              {currentAccount.substring(currentAccount.length - 4)}
+            </p>
           ) : (
             <button className="" onClick={connectWallet}>
               Connect
