@@ -7,14 +7,15 @@ import Web3Modal from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
-//import { walletconnect } from "web3Modal/dist/providers/connectors";
+// import { walletconnect } from "web3Modal/dist/providers/connectors";
 
 const index = () => {
   const router = useRouter();
-  let navi = () => router.push("Extension/1");
+  let navi = () => router.push("/website1");
 
   const [walletConnected, setWalletConnected] = useState(false);
-  const [_sitelink, set_sitelink] = useState("");
+
+  const [sitelink, setSitelink] = useState();
   const [_rating, set_rating] = useState("");
   const [_comment, set_comment] = useState("");
   const web3ModalRef = useRef();
@@ -38,7 +39,6 @@ const index = () => {
 
     // If user is not connected to the Mumbai network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    console.log(chainId);
     if (chainId !== 80001) {
       window.alert("Change the network to Mumbai");
       throw new Error("Change network to Mumbai");
@@ -50,7 +50,6 @@ const index = () => {
     }
     return web3Provider;
   };
-  
 
   const rateWebsite = async () => {
     try {
@@ -69,43 +68,48 @@ const index = () => {
   };
 
   useEffect(() => {
+    try {
+      setSitelink(window.location.host);
+      console.log(sitelink);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [sitelink]);
+
+  useEffect(() => {
     // if wallet is not connected, create a new instance of Web3Modal and connect the MetaMask wallet
     if (!walletConnected) {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "mumbai", // i edited mumbai to rinkeby
+        network: "mumbai",
         providerOptions: {},
         disableInjectedProvider: false,
       });
       connectWallet();
     }
   }, [walletConnected]);
-  
-  const [review,setReview] = useState("");
-
 
   return (
     <div className={styles.Container}>
       <div className={styles.mainContentContainer}>
         <div className={styles.nameAddressRating}>
-          <p className={styles.website}>WEBSITE 1</p>
-          <button
-            className={styles.connectButtonInCard}
-            onClick={connectWallet}
-          >
-            Connect
-          </button>
+          {walletConnected ? (
+            <button className="" onClick={connectWallet}>
+              Connect
+            </button>
+          ) : (
+            <p className={styles.address}>0x00....0000</p>
+          )}
+          <p className={styles.website}>{sitelink}</p>
           {/* <p className={styles.address}>0x00....0000</p> */}
-          <p className={styles.rating}>4.9 • 5</p>
         </div>
         <div className={styles.reviewVoting}>
           <input
-            type= "text"
+            type="text"
             placeholder="Write your review"
             className={styles.inputField}
-            onChange={(event)=>setReview(event.target.value)}
-          ></input>
+          />
 
           <div className={styles.ratingButtons}>
             <button className={styles.like}>
@@ -141,4 +145,4 @@ const index = () => {
   );
 };
 
-export default Index;
+export default index;
