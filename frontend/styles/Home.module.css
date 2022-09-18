@@ -41,15 +41,15 @@
 }
 
 .website {
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 25px;
+  font-weight: 400;
   color: #142b65;
-
   margin: 0px;
 }
 .address {
   font-size: 22px;
   margin: 0px;
+  margin-top: 20px;
   font-weight: lighter;
   color: #142b65;
 }

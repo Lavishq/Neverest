@@ -7,18 +7,21 @@ import Web3Modal from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
-// import { walletconnect } from "web3Modal/dist/providers/connectors";
+//import { walletconnect } from "web3Modal/dist/providers/connectors";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   let navi = () => router.push("/website1");
 
   const [walletConnected, setWalletConnected] = useState(false);
-
   const [sitelink, setSitelink] = useState();
   const [_rating, set_rating] = useState("");
   const [_comment, set_comment] = useState("");
   const web3ModalRef = useRef();
+
+  const ratingValue = (e) => {
+    set_rating(e.target.value);
+  };
 
   const connectWallet = async () => {
     try {
@@ -82,7 +85,7 @@ const index = () => {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "mumbai",
+        network: "mumbai", // i edited mumbai to rinkeby
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -95,14 +98,20 @@ const index = () => {
       <div className={styles.mainContentContainer}>
         <div className={styles.nameAddressRating}>
           {walletConnected ? (
+            <p className={styles.address}>0x00....0000</p>
+          ) : (
             <button className="" onClick={connectWallet}>
               Connect
             </button>
-          ) : (
-            <p className={styles.address}>0x00....0000</p>
           )}
           <p className={styles.website}>{sitelink}</p>
-          {/* <p className={styles.address}>0x00....0000</p> */}
+          <input
+            type="number"
+            className={styles.rating}
+            value={_rating}
+            placeholder="rating 0-5"
+            onChange={ratingValue}
+          />
         </div>
         <div className={styles.reviewVoting}>
           <input
@@ -110,6 +119,7 @@ const index = () => {
             placeholder="Write your review"
             className={styles.inputField}
           />
+          <button onClick={rateWebsite}>Rate</button>
 
           <div className={styles.ratingButtons}>
             <button className={styles.like}>
@@ -145,4 +155,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
