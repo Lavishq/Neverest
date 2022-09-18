@@ -38,7 +38,8 @@ const Index = () => {
 
     // If user is not connected to the Mumbai network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 137) {
+    console.log(chainId);
+    if (chainId !== 80001) {
       window.alert("Change the network to Mumbai");
       throw new Error("Change network to Mumbai");
     }
