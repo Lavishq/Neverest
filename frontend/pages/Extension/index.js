@@ -10,7 +10,7 @@ import { useRouter } from "next/dist/client/router";
 
 const Index = () => {
   const router = useRouter();
-  let navi = () => router.push("/website1");
+  let navi = () => router.push("/sitelist");
 
   const [walletConnected, setWalletConnected] = useState(false);
   const [sitelink, setSitelink] = useState();
@@ -149,24 +149,9 @@ const Index = () => {
             value={_comment}
             onChange={(e) => set_comment(e.target.value)}
           />
-          <button onClick={rateWebsite}>Rate</button>
+          <button className={styles.rateBtn} onClick={rateWebsite}>Rate</button>
 
-          <div className={styles.ratingButtons}>
-            <button className={styles.like}>
-              <img
-                src="./arrow-up.png"
-                alt="arrow-up"
-                className={styles.arrowUp}
-              ></img>
-            </button>
-            <button className={styles.dislike}>
-              <img
-                src="./arrow-down.png"
-                alt="arrow-down"
-                className={styles.arrowDown}
-              ></img>
-            </button>
-          </div>
+          <div className={styles.ratingButtons}></div>
         </div>
         <div className={styles.redirectToReviews}>
           <p>View All Reviews</p>

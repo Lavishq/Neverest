@@ -63,7 +63,7 @@
 
 .inputField {
   border-radius: 10px;
-  height: 135px;
+  height: 120px;
   width: 274px;
   color: #142b65;
   background-color: rgba(256, 256, 256, 0.314);
@@ -85,7 +85,7 @@
   font-weight:300;
 }
 
-.reviewVoting {
+.reviewVoting, .rating {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -96,35 +96,6 @@
 .ratingButtons {
   display: flex;
   justify-content: space-between;
-}
-
-.like {
-  margin: 15px 0 0 10px;
-  border: 0.5px solid rgba(256, 226, 226, 0.3);
-  border-radius: 100%;
-  color: rgba(20, 43, 101, 1);
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  /*border-color: rgba(146, 225, 226, 1);*/
-  background: rgba(256, 256, 256, 0.4);
-  box-shadow: 0px 0px 10px rgba(146, 225, 226, 0.5);
-  backdrop-filter: blur(20px);
-}
-
-.dislike {
-  margin: 15px 0 0 10px;
-  border-radius: 100%;
-  border: 0.5px solid rgba(256, 226, 226, 0.3);
-  color: rgba(20, 43, 101, 1);
-  /*border-color: rgba(146, 225, 226, 1);*/
-  background: rgba(256, 256, 256, 0.4);
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 5px;
-  background: rgba(256, 256, 256, 0.4);
-  box-shadow: 0px 0px 10px rgba(20, 43, 101, 0.5);
-  backdrop-filter: blur(20px);
 }
 
 .redirectToReviews {
@@ -186,14 +157,19 @@
   height: 40px;
   width: 40px;
   margin-left: 5px;
+  background-color: #86bbe3;
+  border-radius: 50%;
 }
-.arrowUp {
-  height: 22px;
-  width: 20px;
+
+.rateBtn {
+  height: 35px;
+  background-color: rgba(256, 256, 256,0);
+  border-radius: 5%;
+  font-size: 1.5em;
+  color: #142b65;
 }
-.arrowDown {
-  height: 25px;
-  width: 20px;
+.rateBtn:hover {
+  background-color: rgba(256, 256, 256, 0.5);
 }
 
 .reviewContainer{
