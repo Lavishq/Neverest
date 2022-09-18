@@ -7,7 +7,7 @@
   width: 390px;
   border-radius: 15px;
   background-image: linear-gradient(#0d4671, #92e1e2);
-  z-index: -2;
+  z-index:0;
   box-shadow: 0px 0px 20px #0d4671;
 }
 
@@ -80,6 +80,9 @@
   backdrop-filter: blur(40px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0px 0px 10px rgb(13, 70, 113, 0.5);
+  color: black;
+  font-size:20px;
+  font-weight:300;
 }
 
 .reviewVoting {
