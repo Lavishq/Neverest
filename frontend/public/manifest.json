@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
-      "js": ["../pages/index.js"]
+      "js": ["inject.js"]
     }
   ],
   "host_permissions": ["<all_urls>"],

@@ -9,7 +9,7 @@ import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
 //import { walletconnect } from "web3Modal/dist/providers/connectors";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   let navi = () => router.push("/website1");
 
@@ -85,7 +85,10 @@ const index = () => {
       <div className={styles.mainContentContainer}>
         <div className={styles.nameAddressRating}>
           <p className={styles.website}>WEBSITE 1</p>
-          <button className="" onClick={connectWallet}>
+          <button
+            className={styles.connectButtonInCard}
+            onClick={connectWallet}
+          >
             Connect
           </button>
           {/* <p className={styles.address}>0x00....0000</p> */}
@@ -132,4 +135,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
