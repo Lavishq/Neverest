@@ -118,6 +118,8 @@ const Index = () => {
             type="text"
             placeholder="Write your review"
             className={styles.inputField}
+            value={_comment}
+            onChange={(e) => set_comment(e.target.value)}
           />
           <button onClick={rateWebsite}>Rate</button>
 
