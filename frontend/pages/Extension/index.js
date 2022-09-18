@@ -18,9 +18,34 @@ const Index = () => {
   const [_rating, set_rating] = useState("");
   const [_comment, set_comment] = useState("");
   const web3ModalRef = useRef();
+  const [currentAccount, setCurrentAccount] = useState("");
 
   const ratingValue = (e) => {
     set_rating(e.target.value);
+  };
+
+  const checkIfWalletIsConnected = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        console.log("Use Metamask!");
+      } else {
+        console.log("Ethereum object found", ethereum);
+      }
+
+      const accounts = await ethereum.request({ method: "eth_accounts" });
+
+      if (accounts !== 0) {
+        const account = accounts[0];
+        console.log("Found an authorized account ", account);
+        setCurrentAccount(account);
+      } else {
+        console.log("Could not find an authorized account");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const connectWallet = async () => {
@@ -89,6 +114,7 @@ const Index = () => {
         providerOptions: {},
         disableInjectedProvider: false,
       });
+      checkIfWalletIsConnected();
       connectWallet();
     }
   }, [walletConnected]);
@@ -98,7 +124,7 @@ const Index = () => {
       <div className={styles.mainContentContainer}>
         <div className={styles.nameAddressRating}>
           {walletConnected ? (
-            <p className={styles.address}>0x00....0000</p>
+            <p className={styles.address}>{currentAccount.substring(0,5)}...{currentAccount.substring(currentAccount.length-4)}</p>
           ) : (
             <button className="" onClick={connectWallet}>
               Connect
