@@ -1,13 +1,13 @@
 //Extension Window Resolution:  W -> 390 , H -> 590
 //Inner Box resolution: W -> 325 , H -> 425
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../../styles/Home.module.css";
 import Web3Modal from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { CONTRACT_ADDRESS, ABI } from "/constants/index.js";
 import { useRouter } from "next/dist/client/router";
-import { walletconnect } from "web3modal/dist/providers/connectors";
+//import { walletconnect } from "web3Modal/dist/providers/connectors";
 
 const index = () => {
   const router = useRouter();
@@ -50,7 +50,7 @@ const index = () => {
     return web3Provider;
   };
 
-  const rateLol = async () => {
+  const rateWebsite = async () => {
     try {
       // We need a Signer here since this is a 'write' transaction.
       const signer = await getProviderOrSigner(true);
